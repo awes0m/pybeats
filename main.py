@@ -32,7 +32,10 @@ tom = mixer.Sound("./assets/sounds/tom.WAV")
 
 ## Initial Screen info ##
 screen = pg.display.set_mode([WIDTH, HEIGHT])
-pg.display.set_caption("Beats_DEV 😎")
+pg.display.set_caption("Beats_Dev 😎")
+
+img = pg.image.load('beats_dev.ico')
+pg.display.set_icon(img)
 # label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
 medium_font = pg.font.SysFont("Ariel", 25)
 label_font = pg.font.SysFont( "assets/Roboto-Bold.ttf", 35, bold=pg.font.Font.bold)
