@@ -32,10 +32,10 @@ tom = mixer.Sound("./assets/sounds/tom.WAV")
 
 ## Initial Screen info ##
 screen = pg.display.set_mode([WIDTH, HEIGHT])
-pg.display.set_caption("Py Beats")
-label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
+pg.display.set_caption("Beats_DEV 😎")
+# label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
 medium_font = pg.font.SysFont("Ariel", 25)
-# label_font = pg.font.SysFont( "assets/Roboto-Bold.ttf", 3050, bold=pg.font.Font.bold)
+label_font = pg.font.SysFont( "assets/Roboto-Bold.ttf", 35, bold=pg.font.Font.bold)
 
 # initialize variables
 index = 100
