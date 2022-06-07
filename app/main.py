@@ -1,9 +1,15 @@
+import os
+
 import pygame as pg
 from pygame import mixer
 
 
 # initialize pygame
 pg.init()
+
+def path_convert (path:str):
+    """converts to a redable path according to Operating System"""
+    return os.path.normpath(path)
 
 # DISPLAY SIZE
 WIDTH = 1366
@@ -22,23 +28,23 @@ light_gray = (170, 170, 170)
 
 
 # load in sounds
-hi_hat = mixer.Sound("./assets/sounds/hi hat.wav")
-snare = mixer.Sound("./assets/sounds/snare.wav")
-kick = mixer.Sound("./assets/sounds/kick.wav")
-crash = mixer.Sound("./assets/sounds/crash.wav")
-clap = mixer.Sound("./assets/sounds/clap.wav")
-tom = mixer.Sound("./assets/sounds/tom.WAV")
+hi_hat = mixer.Sound(path_convert("app/assets/sounds/hi hat.WAV"))
+snare = mixer.Sound(path_convert("app/assets/sounds/snare.wav"))
+kick = mixer.Sound(path_convert("app/assets/sounds/kick.wav"))
+crash = mixer.Sound(path_convert("app/assets/sounds/crash.wav"))
+clap = mixer.Sound(path_convert("app/assets/sounds/clap.wav"))
+tom = mixer.Sound(path_convert("app/assets/sounds/tom.WAV"))
 
 
 ## Initial Screen info ##
 screen = pg.display.set_mode([WIDTH, HEIGHT])
 pg.display.set_caption("Beats_Dev 😎")
-
-img = pg.image.load('beats_dev.ico')
+# ICON
+img = pg.image.load(path_convert("app/assets/beats_dev.ico"))
 pg.display.set_icon(img)
 # label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
 medium_font = pg.font.SysFont("Ariel", 25)
-label_font = pg.font.SysFont( "assets/Roboto-Bold.ttf", 35, bold=pg.font.Font.bold)
+label_font = pg.font.SysFont("assets/Roboto-Bold.ttf", 35, bold=pg.font.Font.bold)
 
 # initialize variables
 index = 100
@@ -55,7 +61,8 @@ bpm = 240
 boxes = []
 clicked = [[-1 for _ in range(beats)] for _ in range(instruments)]
 active_list = [1 for _ in range(instruments)]
-pg.mixer.set_num_channels(instruments * 4)
+
+mixer.set_num_channels(instruments * 4)
 
 playing = True
 """Boolean to determine whether or not the loop is playing, controlled by the play button"""
@@ -69,7 +76,7 @@ save_menu = False
 load_menu = False
 """Controls the load menu"""
 saved_beats = []
-file = open("saved_beats.txt", "r+")
+file = open(path_convert("app/saved_beats.txt"), "r+")
 for line in file:
     saved_beats.append(line)
 # saved_beats.extend(iter(file))

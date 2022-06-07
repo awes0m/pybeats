@@ -9,5 +9,5 @@ for now this id a raw code .
 Installable files for windows and mac will be available soon.
 
 
-<img src="drum main page screenshot.JPG" alt="Application screenshot">
+<img src="app-screenshot.JPG" alt="Application screenshot">
 
