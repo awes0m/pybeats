@@ -28,19 +28,19 @@ light_gray = (170, 170, 170)
 
 
 # load in sounds
-hi_hat = mixer.Sound(pathConvert("assets//sounds//hi hat.wav"))
-snare = mixer.Sound(pathConvert("assets//sounds//snare.wav"))
-kick = mixer.Sound(pathConvert("assets//sounds//kick.wav"))
-crash = mixer.Sound(pathConvert("assets//sounds//crash.wav"))
-clap = mixer.Sound(pathConvert("assets//sounds//clap.wav"))
-tom = mixer.Sound(pathConvert("assets//sounds//tom.wav"))
+hi_hat = mixer.Sound(pathConvert("app//assets//sounds//hi_hat.wav"))
+snare = mixer.Sound(pathConvert("app//assets//sounds//snare.wav"))
+kick = mixer.Sound(pathConvert("app//assets//sounds//kick.wav"))
+crash = mixer.Sound(pathConvert("app//assets//sounds//crash.wav"))
+clap = mixer.Sound(pathConvert("app//assets//sounds//clap.wav"))
+tom = mixer.Sound(pathConvert("app//assets//sounds//tom.wav"))
 
 
 ## Initial Screen info ##
 screen = pg.display.set_mode([WIDTH, HEIGHT])
 pg.display.set_caption("Drum-ru 😎")
 # ICON
-img = pg.image.load(pathConvert("assets//beats_dev.ico"))
+img = pg.image.load(pathConvert("app//assets//beats_dev.ico"))
 pg.display.set_icon(img)
 # label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
 medium_font = pg.font.SysFont("Ariel", 25)
