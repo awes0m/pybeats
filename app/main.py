@@ -7,9 +7,9 @@ from pygame import mixer
 # initialize pygame
 pg.init()
 
-def path_convert (path:str):
-    """converts to a redable path according to Operating System"""
-    return os.path.normpath(path)
+def pathConvert (pathString:str):
+    """converts the string to a read-able path according to Operating System"""
+    return os.path.normpath(pathString)
 
 # DISPLAY SIZE
 WIDTH = 1366
@@ -28,23 +28,23 @@ light_gray = (170, 170, 170)
 
 
 # load in sounds
-hi_hat = mixer.Sound(path_convert("app/assets/sounds/hi hat.WAV"))
-snare = mixer.Sound(path_convert("app/assets/sounds/snare.wav"))
-kick = mixer.Sound(path_convert("app/assets/sounds/kick.wav"))
-crash = mixer.Sound(path_convert("app/assets/sounds/crash.wav"))
-clap = mixer.Sound(path_convert("app/assets/sounds/clap.wav"))
-tom = mixer.Sound(path_convert("app/assets/sounds/tom.WAV"))
+hi_hat = mixer.Sound(pathConvert("assets//sounds//hi hat.wav"))
+snare = mixer.Sound(pathConvert("assets//sounds//snare.wav"))
+kick = mixer.Sound(pathConvert("assets//sounds//kick.wav"))
+crash = mixer.Sound(pathConvert("assets//sounds//crash.wav"))
+clap = mixer.Sound(pathConvert("assets//sounds//clap.wav"))
+tom = mixer.Sound(pathConvert("assets//sounds//tom.wav"))
 
 
 ## Initial Screen info ##
 screen = pg.display.set_mode([WIDTH, HEIGHT])
-pg.display.set_caption("Beats_Dev 😎")
+pg.display.set_caption("Drum-ru 😎")
 # ICON
-img = pg.image.load(path_convert("app/assets/beats_dev.ico"))
+img = pg.image.load(pathConvert("assets//beats_dev.ico"))
 pg.display.set_icon(img)
 # label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
 medium_font = pg.font.SysFont("Ariel", 25)
-label_font = pg.font.SysFont("assets/Roboto-Bold.ttf", 35, bold=pg.font.Font.bold)
+label_font = pg.font.SysFont(pathConvert("app//assets//Roboto-Bold.ttf"), 35, bold=pg.font.Font.bold)
 
 # initialize variables
 index = 100
@@ -75,10 +75,8 @@ save_menu = False
 """Controls save menu open/close"""
 load_menu = False
 """Controls the load menu"""
-saved_beats = []
-file = open(path_convert("app/saved_beats.txt"), "r+")
-for line in file:
-    saved_beats.append(line)
+file = open(pathConvert("saved_beats.txt"), "r+")
+saved_beats = list(file)
 # saved_beats.extend(iter(file))
 
 beat_name = ""
