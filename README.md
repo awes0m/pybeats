@@ -1,6 +1,6 @@
-# Beats_Dev 😎
+# Drum-ru 😎
 
-Develop your own coding beats!
+Develop your own beats!
 A virtual drum developed using Python - Pygame framework.
 
 Custimizable beats with different sounds and colors.

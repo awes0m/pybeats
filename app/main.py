@@ -7,9 +7,9 @@ from pygame import mixer
 # initialize pygame
 pg.init()
 
-def path_convert (path:str):
-    """converts to a redable path according to Operating System"""
-    return os.path.normpath(path)
+def pathConvert (pathString:str):
+    """converts the string to a read-able path according to Operating System"""
+    return os.path.normpath(pathString)
 
 # DISPLAY SIZE
 WIDTH = 1366
@@ -28,23 +28,23 @@ light_gray = (170, 170, 170)
 
 
 # load in sounds
-hi_hat = mixer.Sound(path_convert("app/assets/sounds/hi hat.WAV"))
-snare = mixer.Sound(path_convert("app/assets/sounds/snare.wav"))
-kick = mixer.Sound(path_convert("app/assets/sounds/kick.wav"))
-crash = mixer.Sound(path_convert("app/assets/sounds/crash.wav"))
-clap = mixer.Sound(path_convert("app/assets/sounds/clap.wav"))
-tom = mixer.Sound(path_convert("app/assets/sounds/tom.WAV"))
+hi_hat = mixer.Sound(pathConvert("app//assets//sounds//hi_hat.wav"))
+snare = mixer.Sound(pathConvert("app//assets//sounds//snare.wav"))
+kick = mixer.Sound(pathConvert("app//assets//sounds//kick.wav"))
+crash = mixer.Sound(pathConvert("app//assets//sounds//crash.wav"))
+clap = mixer.Sound(pathConvert("app//assets//sounds//clap.wav"))
+tom = mixer.Sound(pathConvert("app//assets//sounds//tom.wav"))
 
 
 ## Initial Screen info ##
 screen = pg.display.set_mode([WIDTH, HEIGHT])
-pg.display.set_caption("Beats_Dev 😎")
+pg.display.set_caption("Drum-ru 😎")
 # ICON
-img = pg.image.load(path_convert("app/assets/beats_dev.ico"))
+img = pg.image.load(pathConvert("app//assets//beats_dev.ico"))
 pg.display.set_icon(img)
 # label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
 medium_font = pg.font.SysFont("Ariel", 25)
-label_font = pg.font.SysFont("assets/Roboto-Bold.ttf", 35, bold=pg.font.Font.bold)
+label_font = pg.font.SysFont(pathConvert("app//assets//Roboto-Bold.ttf"), 35, bold=pg.font.Font.bold)
 
 # initialize variables
 index = 100
@@ -75,10 +75,8 @@ save_menu = False
 """Controls save menu open/close"""
 load_menu = False
 """Controls the load menu"""
-saved_beats = []
-file = open(path_convert("app/saved_beats.txt"), "r+")
-for line in file:
-    saved_beats.append(line)
+file = open(pathConvert("saved_beats.txt"), "r+")
+saved_beats = list(file)
 # saved_beats.extend(iter(file))
 
 beat_name = ""
@@ -286,13 +284,10 @@ def draw_load_menu(index):
             loaded_bpm = int(saved_beats[beat][beats_index_end + 6 : bpm_index_end])
             loaded_clicks_string = saved_beats[beat][bpm_index_end + 14 : -3]
             loaded_clicks_rows = list(loaded_clicks_string.split("], ["))
-            for row in range(len(loaded_clicks_rows)):
-                loaded_clicks_row = loaded_clicks_rows[row].split(", ")
+            for loaded_clicks_row_ in loaded_clicks_rows:
+                loaded_clicks_row = loaded_clicks_row_.split(", ")
                 for item in range(len(loaded_clicks_row)):
-                    if (
-                        loaded_clicks_row[item] == "1"
-                        or loaded_clicks_row[item] == "-1"
-                    ):
+                    if loaded_clicks_row[item] in ["1", "-1"]:
                         loaded_clicks_row[item] = int(loaded_clicks_row[item])
                 beat_clicked.append(loaded_clicks_row)
                 loaded_clicked = beat_clicked
