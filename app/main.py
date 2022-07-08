@@ -7,9 +7,9 @@ from pygame import mixer
 # initialize pygame
 pg.init()
 
-def pathConvert (pathString:str):
-    """converts the string to a read-able path according to Operating System"""
-    return os.path.normpath(pathString)
+# def pathConvert (pathString:str):
+#     """converts the string to a read-able path according to Operating System"""
+#     return os.path.normpath(pathString)
 
 # DISPLAY SIZE
 WIDTH = 1366
@@ -28,23 +28,23 @@ light_gray = (170, 170, 170)
 
 
 # load in sounds
-hi_hat = mixer.Sound(pathConvert("app//assets//sounds//hi_hat.wav"))
-snare = mixer.Sound(pathConvert("app//assets//sounds//snare.wav"))
-kick = mixer.Sound(pathConvert("app//assets//sounds//kick.wav"))
-crash = mixer.Sound(pathConvert("app//assets//sounds//crash.wav"))
-clap = mixer.Sound(pathConvert("app//assets//sounds//clap.wav"))
-tom = mixer.Sound(pathConvert("app//assets//sounds//tom.wav"))
+hi_hat = mixer.Sound("./assets/sounds/hi_hat.wav")
+snare = mixer.Sound("./assets/sounds/snare.wav")
+kick = mixer.Sound("./assets/sounds/kick.wav")
+crash = mixer.Sound("./assets/sounds/crash.wav")
+clap = mixer.Sound("./assets/sounds/clap.wav")
+tom = mixer.Sound("./assets/sounds/tom.wav")
 
 
 ## Initial Screen info ##
 screen = pg.display.set_mode([WIDTH, HEIGHT])
 pg.display.set_caption("Drum-ru 😎")
 # ICON
-img = pg.image.load(pathConvert("app//assets//beats_dev.ico"))
+img = pg.image.load("assets/beats_dev.ico")
 pg.display.set_icon(img)
 # label_font = pg.font.SysFont("Ariel", 35, bold=pg.font.Font.bold)
 medium_font = pg.font.SysFont("Ariel", 25)
-label_font = pg.font.SysFont(pathConvert("app//assets//Roboto-Bold.ttf"), 35, bold=pg.font.Font.bold)
+label_font = pg.font.SysFont("assets/Roboto-Bold.ttf", 35, bold=pg.font.Font.bold)
 
 # initialize variables
 index = 100
@@ -75,7 +75,7 @@ save_menu = False
 """Controls save menu open/close"""
 load_menu = False
 """Controls the load menu"""
-file = open(pathConvert("saved_beats.txt"), "r+")
+file = open("saved_beats.txt", "r+")
 saved_beats = list(file)
 # saved_beats.extend(iter(file))
 
